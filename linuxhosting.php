@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><span>Launch  </span> your business with Rs. 2000* Google AdWords Credit *</li>
 									<li><span>30 day </span> Money Back Guarantee</li>
 								</ul>
-									<a href="#">view plans</a>
+									<a href="#tab">view plans</a>
 								</div>
 								<div class="col-md-4 linux-grid1">
 									<img src="images/linux.png" class="img-responsive" alt=""/>

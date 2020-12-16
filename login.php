@@ -1,4 +1,18 @@
+<?php
+   require_once('User.php');
+   require_once('Dbcon.php');
+   $obj= new DbCon();
+   $obj2=new User();
+   if (isset($_POST['submit'])) {
+   $password=isset($_POST['password'])?$_POST['password']:'';
+   $email=isset($_POST['email'])?$_POST['email']:'';
+ 
 
+   $obj2->login($email,$password,$obj->conn);
+   
+   
+   }
+   ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -44,18 +58,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="col-md-6 login-right">
 									<h3>registered</h3>
 									<p>If you have an account with us, please log in.</p>
-									<form>
+									<form  method="POST">
 									  <div>
 										<span>Email Address<label>*</label></span>
-										<input type="text"> 
+										<input type="text" name="email" required> 
 									  </div>
 									  <div>
 										<span>Password<label>*</label></span>
-										<input type="password"> 
+										<input type="password" name="password" required> 
 									  </div>
 									  <a class="forgot" href="#">Forgot Your Password?</a>
-									  <input type="submit" value="Login">
-									</form>
+									  <input type="submit" value="Login" name="submit">
+								</form>
 								</div>	
 								<div class="clearfix"> </div>
 							</div>

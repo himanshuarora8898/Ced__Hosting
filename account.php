@@ -37,15 +37,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    $name=isset($_POST['name'])?$_POST['name']:'';
    $name=strtolower($name);
    $phone=isset($_POST['phone'])?$_POST['phone']:'';
-   $userpassword=isset($_POST['pass'])?$_POST['pass']:'';
-   $userpassword2=isset($_POST['repass'])?$_POST['repass']:'';
+   $password=isset($_POST['pass'])?$_POST['pass']:'';
+   $password2=isset($_POST['repass'])?$_POST['repass']:'';
    $email=isset($_POST['email'])?$_POST['email']:'';
    $ques=isset($_POST['ques'])?$_POST['ques']:'';
    $ans=isset($_POST['ans'])?$_POST['ans']:'';
+   $_SESSION['signup']['email']=$email;
+   $_SESSION['signup']['phone']=$phone;
+   $_SESSION['signup']['name']=$name;
+   $obj2->signup($name,$phone,$ques,$ans,$password,$email, $password2,$obj->conn);
    
    
-   $obj2->entry($name,$phone,$ques,$ans,$userpassword,$email, $userpassword2,$obj->conn);
-   
+
+  
    
    }
    ?>
@@ -76,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <div>
                      <span>Security Question<label>*</label></span>
                      <select name="ques" id="squestion" style="width:524px;height:37px" required>
-                        <option value="" selected disabled hidden>--Select Security Question--</option>
+                        <option value="" selected disabled hidden>--Select Your Security Question--</option>
                         <option value="What was your childhood nickname?">-What was your childhood nickname?</option>
                         <option value="What is the name of your favourite childhood friend?">-What is the name of your favourite childhood friend?</option>
                         <option value="What was your favourite place to visit as a child?">-What was your favourite place to visit as a child?</option>
@@ -85,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      </select>
                   </div>
                   <div>
-                     <span>Answer<label>*</label></span>
+                     <span>Secuity Answer<label>*</label></span>
                      <input type="text" class="prevent" name="ans" id="sans" required pattern="^[a-zA-Z0-9]+$"
                         onkeydown="return alphaonly2(event);">
                   </div>
@@ -106,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                </div>
                <div class="clearfix"> </div>
                <div class="register-but">
-                  <input type="submit" value="submit" name="submit" class="a" >
+                  <input type="submit" value="submit" name="submit" id="sign" >
                   <div class="clearfix"> </div>
             </form>
             </div>
@@ -199,7 +203,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
    var code = button.which;
    if(count>0 && code==32){
-   console.log('sjnd');
    count=0;
    return true;
    }

@@ -1,4 +1,12 @@
+<?php include 'header.php';?>
+
 <?php
+if(!isset($_SESSION['userdata'])){
+	echo "<script>alert('Login first')
+	window.location.href='login.php';
+	</script>";
+
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -40,7 +48,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<!---header--->
-	<?php include('header.php');?>
 	<!---header--->
 	<!---banner--->
 		<div class="banner">
